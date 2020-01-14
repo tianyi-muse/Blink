@@ -1,0 +1,52 @@
+/*Program written by Tianyi Shi on 14th January
+ * Assignment Blink
+ */
+ 
+int ledPin=9;//LED connected to digital pin 9
+int ledPin2=10;//LED connected to digital pin 10
+
+void setup() {
+pinMode(8,OUTPUT);//Using pin 8
+}
+
+void loop() {
+  digitalWrite(8,HIGH);
+  delay(1000);
+  digitalWrite(8,LOW);
+  delay(500);
+  digitalWrite(8,HIGH);
+  delay(500);
+  digitalWrite(8,LOW);
+  delay(1000);
+  //fade in from min to max in crements of 5 points:
+  for(int fadeValue=0; fadeValue<=150; fadeValue+=5){
+    //sets the value(range from 0 to 150):
+    analogWrite(ledPin, fadeValue);
+    //wait for 100 milliseconds to see the dimming effect
+    delay(100);
+  }
+
+    // fade out from max to min in increments of 5 points:
+  for (int fadeValue=150; fadeValue>=0; fadeValue-=5) {
+    // sets the value (range from 0 to 150):
+    analogWrite(ledPin, fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+
+    //fade in from min to max in crements of 5 points:
+  for(int fadeValue=0; fadeValue<=150; fadeValue+=5){
+    //sets the value(range from 0 to 150):
+    analogWrite(ledPin2, fadeValue);
+    //wait for 100 milliseconds to see the dimming effect
+    delay(100);
+  }
+  
+  // fade out from max to min in increments of 5 points:
+  for (int fadeValue=150; fadeValue>=0; fadeValue-=5) {
+    // sets the value (range from 0 to 150):
+    analogWrite(ledPin2, fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+}
